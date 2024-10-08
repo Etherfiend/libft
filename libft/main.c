@@ -6,4 +6,5 @@ int	main(int argc, char **argv){
 	printf("%d\n", ft_isalpha('c'));
 	printf("%d\n", ft_isalnum('c'));
 	printf("%d\n", ft_isascii('c'));
+	printf("%zu\n", ft_strlen("arif"));
 }
