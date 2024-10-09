@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muokcan <muokcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 16:58:00 by muokcan           #+#    #+#             */
-/*   Updated: 2024/10/09 17:18:19 by muokcan          ###   ########.fr       */
+/*   Created: 2024/10/09 15:18:37 by muokcan           #+#    #+#             */
+/*   Updated: 2024/10/09 16:18:10 by muokcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t i;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-void 	*ft_memset(void *b, int c, size_t len);
-size_t	ft_strlen(const char *c);
-void	ft_bzero(void *s, size_t n);
-void 	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
-void 	*memmove(void *dst, const void *src, size_t len);
+	if(dst == src | len == 0)
+		return (dst);
 
-#endif
+	i = 0;
+	while(len--)
+	{
+		((unsigned char *)dst)[i] = ((const unsigned char *)src)[i];
+		i++;
+	}
+}
