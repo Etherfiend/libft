@@ -6,23 +6,36 @@
 /*   By: muokcan <muokcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:35:33 by muokcan           #+#    #+#             */
-/*   Updated: 2024/10/09 18:18:23 by muokcan          ###   ########.fr       */
+/*   Updated: 2024/10/10 13:38:42 by muokcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
 	size_t i;
-	unsigned char *to = (unsigned char *)dst;
-	const unsigned char *from = (unsigned char *)src;
+	char *to = dst;
+	const char *from = src;
 
-
-	if(!(n > 0 || from > to))
+	if(to == from || n == 0)
+		return (to);
+	
+	i = 0;
+	while(n--)
 	{
-		return ();
+		to[i] = from[i];
+		i++;
 	}
+	return (to);
+}
 
-	while()
+#include <stdio.h>
+
+int main()
+{
+	char arr[] = "helloworld";
+	ft_memcpy(arr + 5, arr, 2);
+	arr[7] = '\0';
+	printf("%s", arr);
 }

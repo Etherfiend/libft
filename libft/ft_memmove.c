@@ -6,7 +6,7 @@
 /*   By: muokcan <muokcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:18:37 by muokcan           #+#    #+#             */
-/*   Updated: 2024/10/09 16:18:10 by muokcan          ###   ########.fr       */
+/*   Updated: 2024/10/10 16:19:56 by muokcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,28 @@
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t i;
+	char *to = dst;
+	const char *from = src;
+	
 
-	if(dst == src | len == 0)
+	if(to == from | len == 0)
 		return (dst);
 
-	i = 0;
-	while(len--)
+
+	if(to < from)
 	{
-		((unsigned char *)dst)[i] = ((const unsigned char *)src)[i];
-		i++;
+		i = 0;
+		while(len--)
+		{
+			
+		}
 	}
+
+	if(to > from)
+	{
+		while(len > 0)
+		{ 
+		}
+	}
+	return(to);
 }
