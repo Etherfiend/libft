@@ -18,10 +18,3 @@ void ft_putstr_fd(char *s, int fd)
 		ft_putchar_fd(*s++, fd);
 }
 
-#include <fcntl.h>
-
-int	main(int argc, char **argv)
-{
-	int fd = open(argv[1], O_RDONLY, 777);
-	ft_putstr_fd(fd);
-}
