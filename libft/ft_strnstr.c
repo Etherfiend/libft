@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	int i;
 	int j;
 
-	if (little == NULL)
+	if (*little == '\0')
 		return ((char *)big);
 	i = 0;
 	while (big && i < len)
 	{
 		j = 0;
-		while(big[i + j] == little[j] && (i + j) < len)
+		while( little[j] && big[i + j] == little[j] && (i + j) < len)
 		{
 			if(little[j] == '\0')
 				return ((char *)big + i);

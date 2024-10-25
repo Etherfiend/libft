@@ -10,3 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+char *ft_strrchr(const char *s, int c)
+{
+	int i;
+	unsigned int slen;
+
+	slen = ft_strlen(s);
+	i = 0;
+	while(slen--)
+	{
+		if(s[slen] == (char)c)
+			return ((char *)&s[slen]);
+	}
+	return (NULL);
+}
+
+#include <string.h>
+#include <stdio.h>
+
+int	main()
+{
+	printf("%s", ft_strrchr("arifokcan", 'n'));
+}
