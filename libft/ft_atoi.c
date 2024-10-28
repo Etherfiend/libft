@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 int	ft_atoi(const char *nptr)
 {
 	long	result;
-	int		i;
+	register int		i;
 	int		sign;
 
 	result = 0;
@@ -34,7 +35,7 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	if((result * sign) >= FT_INT_MIN && (result * sign) <= FT_INT_MAX)
+	if((result * sign) >= INT_MIN && (result * sign) <= INT_MAX)
 		return ((int)result * sign);
 	return (0);
 }

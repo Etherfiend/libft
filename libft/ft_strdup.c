@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muokcan <muokcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 15:18:37 by muokcan           #+#    #+#             */
-/*   Updated: 2024/10/18 18:03:10 by muokcan          ###   ########.fr       */
+/*   Created: 2024/10/28 14:11:49 by muokcan           #+#    #+#             */
+/*   Updated: 2024/10/28 14:11:49 by muokcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+char *ft_strdup(const char *s)
 {
-	register size_t i;
+	char *res;
+	register int i;
 
-	if(src == dest)
-		return (dest);
-
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (res == NULL)
+		return (NULL);
 	i = 0;
-	if(src < dest)
-		while(len--)	
-			((unsigned char *)dest)[len] = ((unsigned char *)src)[len];
-	else
-		while(len--)
-		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
-	return (dest);
+	while(s[i])
+	{
+		 res[i] = s[i];
+		 i++;
+	}
+	res[i] = '\0';
+	return (res);
 }

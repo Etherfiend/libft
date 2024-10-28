@@ -15,10 +15,6 @@
 
 # include <stdlib.h>
 
-# define FT_INT_MIN -2147483648
-# define FT_INT_MAX 2147483647
-# define SPACE 32
-
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *nptr);

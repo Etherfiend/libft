@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <limits.h> 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if(n == FT_INT_MIN)
+	if(n == INT_MIN)
 	{
 		ft_putchar_fd('-', fd);
 		ft_putchar_fd('2', fd);
