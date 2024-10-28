@@ -17,6 +17,8 @@ static int	getlen(int n)
 	register int i;
 
 	i = 0;
+	if(n < 0)
+		n = -n;
 	while(n != 0)
 	{
 		n = n / 10;
@@ -36,6 +38,15 @@ char *ft_itoa(int n)
 	res = malloc(sizeof(char) * (digit + 1));
 	if(res == NULL)
 		return (NULL);
+	i = 0;
+	if(n < 0)
+	{
+		res[i] = '-';
+		i++;
+	}
+	while(i < digit)
+	{
+	}
 }
 
 #include <stdio.h>
