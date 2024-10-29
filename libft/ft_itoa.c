@@ -11,47 +11,79 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <limits.h>
 
 static int	getlen(int n)
 {
-	register int i;
+	register int	i;
 
 	i = 0;
-	if(n < 0)
-		n = -n;
-	while(n != 0)
+	if(n == INT_MIN)
+		return (11);
+	if (n < 0)
 	{
-		n = n / 10;
 		i++;
+		n = -n;
+	}
+	else if (n == 0)
+		return (1);
+	if (n > 0)
+	{
+		while (n != 0)
+		{
+			n = n / 10;
+			i++;
+		}
 	}
 	return (i);
 }
 
-char *ft_itoa(int n)
+static char	*write_digits(char *wd, int number, int gl_digit)
+{
+	if (number == INT_MIN)
+	{
+		wd[0] = '-';
+		wd[1] = '2';
+		number = 147483648;
+	}
+	else if (number < 0)
+	{
+		wd[0] = '-';
+		number = -number;
+	}
+	if (number == 0)
+	{
+		wd[0] = '0';
+		return (wd);
+	}
+	while (number != 0)
+	{
+		wd[gl_digit--] = (number % 10) + '0';
+		number = number / 10;
+	}
+	return (wd);
+}
+
+char	*ft_itoa(int n)
 {
 	char			*res;
-	char			first;
 	unsigned int	digit;
-	register int	i;
 
 	digit = getlen(n);
 	res = malloc(sizeof(char) * (digit + 1));
-	if(res == NULL)
+	if (res == NULL)
 		return (NULL);
-	i = 0;
-	if(n < 0)
-	{
-		res[i] = '-';
-		i++;
-	}
-	while(i < digit)
-	{
-	}
+	res[digit--] = '\0';
+	return (write_digits(res, n, digit));
 }
 
 #include <stdio.h>
 
-int main()
-{
-	printf("%s", ft_itoa(-123));
+int main() {
+    printf("%s\n", ft_itoa(INT_MIN)); // "-2147483648" bekleniyor
+    printf("%s\n", ft_itoa(-123));     // "-123" bekleniyor
+    printf("%s\n", ft_itoa(0));        // "0" bekleniyor
+    printf("%s\n", ft_itoa(456));      // "456" bekleniyor
+    printf("%s\n", ft_itoa(123456));   // "123456" bekleniyor
+    return 0;
 }
