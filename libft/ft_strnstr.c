@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	register int	i;
-	register int	j;
+	register size_t	i;
+	register size_t	j;
 
 	if (*little == '\0')
 		return ((char *)big);
 	i = 0;
-	while (big && i < len)
+	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
 		while (little[j] && big[i + j] == little[j] && (i + j) < len)
 		{
-			if (little[j] == '\0')
+			if (little[j + 1] == '\0')
 				return ((char *)big + i);
 			j++;
 		}

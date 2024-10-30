@@ -10,15 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	register int	i;
+	register size_t	i;
 	char			*result;
 
-	result = malloc((len - start) * sizeof(char));
+	if (start >= ft_strlen(s))
+	{
+		result = malloc(1);
+		if (!result)
+			return (NULL);
+		result[0] = '\0';
+		return (result);
+	}
+	result = malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
@@ -26,5 +36,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start++;
 		i++;
 	}
+	result[i] = '\0';
 	return (result);
 }
