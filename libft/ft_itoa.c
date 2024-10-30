@@ -15,7 +15,7 @@
 
 static int	getlen(int n)
 {
-	register int	i;
+	int	i;
 
 	i = 0;
 	if (n == INT_MIN)
