@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char *ft_strdup(const char *s)
 {
-	char *res;
-	register int i;
+	register int	i;
+	char			*res;
 
 	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (res == NULL)

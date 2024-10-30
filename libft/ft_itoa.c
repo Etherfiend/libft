@@ -66,8 +66,8 @@ static char	*write_digits(char *wd, int number, int gl_digit)
 
 char	*ft_itoa(int n)
 {
-	char			*res;
 	unsigned int	digit;
+	char			*res;
 
 	digit = getlen(n);
 	res = malloc(sizeof(char) * (digit + 1));

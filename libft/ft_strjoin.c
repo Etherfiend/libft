@@ -15,9 +15,9 @@
 
 char *ft_strjoin(char const *s1, char const *s2)
 {
-	char *res;
-	register int i;
-	register int j;
+	register int	i;
+	register int	j;
+	char			*res;
 
 	if(!s1 || !	s2)
 		return (NULL);
