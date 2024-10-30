@@ -22,11 +22,11 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	sign = 1;
 	i = 0;
-	while(ft_isspace(nptr[i]))
+	while (ft_isspace(nptr[i]))
 		i++;
-	if(nptr[i] == '-' || nptr[i] == '+')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if(nptr[i] == '-')
+		if (nptr[i] == '-')
 			sign = -sign;
 		i++;
 	}
@@ -35,7 +35,7 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	if((result * sign) >= INT_MIN && (result * sign) <= INT_MAX)
+	if ((result * sign) >= INT_MIN && (result * sign) <= INT_MAX)
 		return ((int)result * sign);
 	return (0);
 }

@@ -13,24 +13,18 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	register int i;
+	register int	i;
+	char			*result;
 
-	char *result = malloc((len - start) * sizeof(char));
+	result = malloc((len - start) * sizeof(char));
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		result[i] = s[start];
 		start++;
 		i++;
 	}
 	return (result);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	printf("%s", ft_substr("arifokcan", 2, 4));
 }

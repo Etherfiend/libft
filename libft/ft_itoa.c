@@ -18,7 +18,7 @@ static int	getlen(int n)
 	register int	i;
 
 	i = 0;
-	if(n == INT_MIN)
+	if (n == INT_MIN)
 		return (11);
 	if (n < 0)
 	{
@@ -75,15 +75,4 @@ char	*ft_itoa(int n)
 		return (NULL);
 	res[digit--] = '\0';
 	return (write_digits(res, n, digit));
-}
-
-#include <stdio.h>
-
-int main() {
-    printf("%s\n", ft_itoa(INT_MIN)); // "-2147483648" bekleniyor
-    printf("%s\n", ft_itoa(-123));     // "-123" bekleniyor
-    printf("%s\n", ft_itoa(0));        // "0" bekleniyor
-    printf("%s\n", ft_itoa(456));      // "456" bekleniyor
-    printf("%s\n", ft_itoa(123456));   // "123456" bekleniyor
-    return 0;
 }

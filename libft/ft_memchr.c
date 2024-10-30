@@ -12,14 +12,14 @@
 
 #include <stddef.h>
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	register size_t i;
+	register size_t	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
-		if(((const unsigned char *)s)[i] == (unsigned char)c)
+		if (((const unsigned char *)s)[i] == (unsigned char)c)
 			return ((void *)&((const unsigned char *)s)[i]);
 		i++;
 	}

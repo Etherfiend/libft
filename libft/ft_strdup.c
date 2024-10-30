@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	register int	i;
 	char			*res;
@@ -22,10 +22,10 @@ char *ft_strdup(const char *s)
 	if (res == NULL)
 		return (NULL);
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
-		 res[i] = s[i];
-		 i++;
+		res[i] = s[i];
+		i++;
 	}
 	res[i] = '\0';
 	return (res);

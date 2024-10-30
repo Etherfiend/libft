@@ -15,7 +15,7 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void *callocated;
+	void	*callocated;
 
 	if (nmemb == 0 || size == 0 || size > (size_t)-1)
 		return (NULL);
@@ -25,4 +25,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(callocated, size * nmemb);
 	return (callocated);
 }
-

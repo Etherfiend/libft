@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	register int i;
-	register int j;
+	register int	i;
+	register int	j;
 
 	if (*little == '\0')
 		return ((char *)big);
@@ -23,21 +23,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (big && i < len)
 	{
 		j = 0;
-		while( little[j] && big[i + j] == little[j] && (i + j) < len)
+		while (little[j] && big[i + j] == little[j] && (i + j) < len)
 		{
-			if(little[j] == '\0')
+			if (little[j] == '\0')
 				return ((char *)big + i);
 			j++;
 		}
 		i++;
 	}
 	return (NULL);
-}
-
-#include <stdio.h>
-#include <string.h>
-
-int	main()
-{
-		printf("%s\n", ft_strnstr("arifokcan", "if", 6));
 }
