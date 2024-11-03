@@ -35,7 +35,5 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	if ((result * sign) >= INT_MIN && (result * sign) <= INT_MAX)
-		return ((int)result * sign);
-	return (0);
+	return ((int)result * sign);
 }
