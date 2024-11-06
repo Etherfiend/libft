@@ -25,63 +25,44 @@ static void	free_alloc(char **s)
 	free(s);
 }
 
-static unsigned int	wordlen(char *s, char sep)
+static unsigned int	word_len(char *s, char c)
 {
-	unsigned int	i;
+	unsigned int	len;
 
-	i = 0;
-	while (s[i] && s[i] != sep)
-		i++;
-	return (i);
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
 }
 
-static unsigned int	wordcounter(char *s, char sep)
+static unsigned int	word_counter(char *s, char c)
 {
 	unsigned int	is_word;
-	unsigned int	wordcount;
+	unsigned int	word_count;
 
+	word_count = 0;
 	is_word = 0;
-	wordcount = 0;
 	while (*s)
 	{
-		if (*s != sep && is_word == 0)
+		if (*s != c && is_word == 0)
 		{
 			is_word = 1;
-			wordcount++;
+			word_count++;
 		}
-		else if (*s == sep && is_word == 1)
+		else if (*s != c)
 			is_word = 0;
 		s++;
 	}
-	return (wordcount);
+	return (word_count);
 }
 
-char	**ft_split(char const *s, char c)
+static char *get_word(char **s, char c)
 {
-	char			**res;
+	unsigned int	len;
 	unsigned int	i;
+	unsigned int	j;
 
-	if (!s)
-		return (NULL);
-	res = malloc(sizeof(char *) * (wordcounter((char *)s, c) + 1));
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (i < wordcounter((char *)s, c))
-	{
-		while (*s == c)
-			s++;
-		res[i] = malloc(sizeof(char) * (wordlen((char *)s, c) + 1));
-		if (!res[i])
-		{
-			free_alloc(res);
-			return (NULL);
-		}
-		ft_strlcpy(res[i], s, (wordlen((char *)s, c) + 1));
-		s += wordlen((char *)s, c);
-		i++;
-	}
-	res[i] = NULL;
-	return (res);
+	while (s[j][i] && s[j][i] == c)
+		s[j][i]++;
+	len = word_len(*s, c);
 }
-
