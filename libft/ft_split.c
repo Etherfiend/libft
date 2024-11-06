@@ -25,7 +25,7 @@ static void	free_alloc(char **s)
 	free(s);
 }
 
-static unsigned int	word_len(char *s, char c)
+static unsigned int	word_len(char const *s, char c)
 {
 	unsigned int	len;
 
@@ -35,7 +35,7 @@ static unsigned int	word_len(char *s, char c)
 	return (len);
 }
 
-static unsigned int	word_counter(char *s, char c)
+static unsigned int	word_counter(char const *s, char c)
 {
 	unsigned int	is_word;
 	unsigned int	word_count;
@@ -49,20 +49,48 @@ static unsigned int	word_counter(char *s, char c)
 			is_word = 1;
 			word_count++;
 		}
-		else if (*s != c)
+		else if (*s == c)
 			is_word = 0;
 		s++;
 	}
 	return (word_count);
 }
 
-static char *get_word(char **s, char c)
+static char	*get_word(char const **s, char c)
 {
 	unsigned int	len;
-	unsigned int	i;
-	unsigned int	j;
+	char			*word;
 
-	while (s[j][i] && s[j][i] == c)
-		s[j][i]++;
+	while (**s && **s == c)
+		(*s)++;
 	len = word_len(*s, c);
+	word = ft_substr(*s, 0, len);
+	*s += len;
+	return (word);
 }
+
+char	**ft_split(char const *s, char c)
+{
+	unsigned int	i;
+	unsigned int	words;
+	char			*word;
+	char			**res;
+
+	words = word_counter((char *)s, c);
+	res = malloc(sizeof(char *) * (words + 1));
+	i = 0;
+	while (*s && i < words)
+	{
+		word = get_word(&s, c);
+		if (word)
+			res[i++] = word;
+		else
+		{
+			free_alloc(res);
+			return (NULL);
+		}
+	}
+	res[i] = NULL;
+	return (res);
+}
+
