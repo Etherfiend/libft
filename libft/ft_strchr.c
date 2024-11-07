@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	register unsigned int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (s[i])
@@ -23,13 +23,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (c == '\0')
+	if ((unsigned char)c == '\0')
 		return ((char *)&s[i]);
 	return (NULL);
-}
-
-#include <stdio.h>
-int main()
-{
-	printf("%p", ft_strchr("teste", '\0'));
 }
