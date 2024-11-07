@@ -73,22 +73,24 @@ char	**ft_split(char const *s, char c)
 {
 	unsigned int	i;
 	unsigned int	words;
-	char			*word;
 	char			**res;
 
+	if (!s)
+		return (NULL);
 	words = word_counter((char *)s, c);
 	res = malloc(sizeof(char *) * (words + 1));
+	if (!res)
+		return (NULL);
 	i = 0;
 	while (*s && i < words)
 	{
-		word = get_word(&s, c);
-		if (word)
-			res[i++] = word;
-		else
+		res[i] = get_word(&s, c);
+		if (!res[i])
 		{
 			free_alloc(res);
 			return (NULL);
 		}
+		i++;
 	}
 	res[i] = NULL;
 	return (res);
