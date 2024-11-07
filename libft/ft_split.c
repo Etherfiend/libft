@@ -93,4 +93,3 @@ char	**ft_split(char const *s, char c)
 	res[i] = NULL;
 	return (res);
 }
-

@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	register size_t	i;
 	char			*result;
 
+	if (!s)
+		return (NULL);
 	if (start >= ft_strlen(s))
 	{
 		result = malloc(1);
